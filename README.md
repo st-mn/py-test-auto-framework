@@ -10,25 +10,41 @@ Sample Test Automation project to show automation by using Python, Pytest and Se
 
 ## Installation
 ```bash
-> git clone https://github.com/abkabhishek/py-test-auto-framework.git
+> git clone https://github.com/st-mn/py-test-auto-framework.git
+```
+```bash
 > cd py-test-auto-framework
-> virtualenv venv (create virtual env)
-> source venv/Scripts/activate (activate virtual env)
-> pip install -r requirements.txt (install dependencies)
+```
+```bash
+> virtualenv venv
+```
+```bash
+> source venv/bin/activate
+```
+```bash
+> pip install -r requirements.txt
+```
+```bash
 > export PYTHONPATH=$(pwd):$PYTHONPATH
 ```
+
 
 ## To Run Test
 
 ```python
 #to run all test
 pytest -v
+```
+```python
+#to run all test and generate html report
+pytest --html=report.html -v
+```
+```python
 #to run test function containing keyword (registration
 pytest -v -k registration
 #to run test function marked with mentioned marker (positive)
 pytest -v -m positive
-#to run all test and generate html report
-pytest --html=report.html -v
+
 
 ```
 
