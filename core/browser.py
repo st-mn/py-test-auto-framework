@@ -43,7 +43,19 @@ class Browser:
                     raise Exception("Invalid Browser passed")
             elif platform == "linux" or platform == "linux2":
                 # linux
-                raise Exception("TBD for Linux")
+                if settings["browser"] == 'chrome':
+                    chrome_options = Options()
+                    if settings["headless"] == "true":
+                        chrome_options.add_argument("--headless")
+
+                    driver = webdriver.Chrome(
+                        executable_path='./resources/chromedriver_lin',
+                        options=chrome_options
+                    )
+
+                else:
+                    print("Invalid Browser passed")
+                    raise Exception("Invalid Browser passed")
         elif settings["environment"] == "remote":
              # Make sure to run "docker-compose up -d" before running test
             remote_grid_url = 'http://localhost:4444/wd/hub'
